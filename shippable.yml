@@ -48,7 +48,7 @@ jobs:
             - TRANSFER=$(shipctl get_resource_state tacit_runCI)
             - echo "Reading from $TRANSFER"
             - sha1sum $TRANSFER/transfer.tar.b64
-            - base64 < $TRANSFER/transfer.tar.b64 > $TRANSFER/transfer.tar
+            - base64 -d < $TRANSFER/transfer.tar.b64 > $TRANSFER/transfer.tar
             - sha1sum $TRANSFER/transfer.tar
             - tar xvf $TRANSFER/transfer.tar
             # - git clone git@github.com:tacit-lang/tacit-lang.github.io.git gh-pages
